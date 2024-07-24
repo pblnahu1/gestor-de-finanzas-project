@@ -5,6 +5,7 @@ import Header from './components/Header'
 import Footer from './components/Footer'
 import HomePage from './pages/HomePage'
 import LoginPage from './pages/Login';
+import Registro from './pages/Registro';
 
 function App() {
 
@@ -15,7 +16,8 @@ function App() {
         <main className=' flex-grow p-4 items-center'>
           <Routes>
             <Route path='/' element={<HomePage />}></Route>
-            <Route path='/login' element={ <LoginPage/>}></Route>
+            <Route path='/login' element={<LoginPage />}></Route>
+            <Route path='/registro' element={ <Registro />}></Route>
           </Routes>
         </main>
         <Footer />
