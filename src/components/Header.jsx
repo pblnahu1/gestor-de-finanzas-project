@@ -1,8 +1,20 @@
 import DollarIcon from "./DollarIcon";
 import Theme from "./Theme";
+import { useNavigate } from "react-router-dom";
 
 
 export default function Header() {
+
+  const navigate = useNavigate()
+
+  const handleStartClick = () => {
+    navigate('/login')
+  }
+
+  const handleStartHomeClick = () => {
+    navigate('/')
+  }
+
   return (
     <div className="navbar bg-base-100">
       <div className="navbar-start">
@@ -36,7 +48,7 @@ export default function Header() {
             <Theme />
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl"><DollarIcon />Your Finance</a>
+        <a className="btn btn-ghost text-xl" onClick={handleStartHomeClick}><DollarIcon />Your Finance</a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
@@ -55,7 +67,7 @@ export default function Header() {
         </ul>
       </div>
       <div className="navbar-end mr-5">
-        <a className="btn">Iniciar Sesión</a>
+        <a className="btn" onClick={handleStartClick}>Iniciar Sesión</a>
       </div>
       {/* <Theme /> */}
     </div>
