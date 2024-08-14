@@ -37,13 +37,13 @@ export default function Header() {
             tabIndex={0}
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
             <li><a>Inicio</a></li>
-            <li>
+            {/* <li>
               <a>Tus gastos</a>
               <ul className="p-2">
                 <li><a>Submenu 1</a></li>
                 <li><a>Submenu 2</a></li>
               </ul>
-            </li>
+            </li> */}
             <li><a>Ayuda</a></li>
             <Theme />
           </ul>
@@ -53,7 +53,7 @@ export default function Header() {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
           <li><a>Inicio</a></li>
-          <li>
+          {/* <li>
             <details>
               <summary>Tus gastos</summary>
               <ul className="p-2">
@@ -61,7 +61,7 @@ export default function Header() {
                 <li><a>Submenu 2</a></li>
               </ul>
             </details>
-          </li>
+          </li> */}
           <li><a>Ayuda</a></li>
           <Theme />
         </ul>

@@ -11,6 +11,7 @@ const Registro = ({ handleStartLoginRegistroClick }) => {
   const [name, setName] = useState('')
   const [apellido, setApellido] = useState('');
   const [showPassword, setShowPassword] = useState(false)
+  const [isSubmitDisabled, setIsSubmitDisabled] = useState(true);
 
   const handleTogglePassword = () => {
     setShowPassword((prevShowPassword) => !prevShowPassword);
@@ -18,7 +19,13 @@ const Registro = ({ handleStartLoginRegistroClick }) => {
 
   useEffect(() => {
     document.title = 'Registrarse'
-  }, [])
+
+    if (email === '' || password === '' || user === '' || name === '' || apellido === '') {
+      setIsSubmitDisabled(true);
+    } else {
+      setIsSubmitDisabled(false);
+    }
+  }, [email, password, user, name, apellido]);
 
   return (
     <div className="flex flex-col items-center justify-center m-20 md:m-20">
@@ -104,7 +111,7 @@ const Registro = ({ handleStartLoginRegistroClick }) => {
           </a>
         </p>
 
-        <input type="submit" className="btn btn-wide btn-neutral" />
+        <input type="submit" className="btn btn-wide btn-neutral" disabled={isSubmitDisabled} />
       </form>
     </div>
   )

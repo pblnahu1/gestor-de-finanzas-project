@@ -6,6 +6,7 @@ const LoginPage = ({ handleStartLoginRegistroClick }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
+  const [isSubmitDisabled, setIsSubmitDisabled] = useState(true);
 
   const handleTogglePassword = () => {
     setShowPassword((prevShowPassword) => !prevShowPassword);
@@ -13,7 +14,15 @@ const LoginPage = ({ handleStartLoginRegistroClick }) => {
 
   useEffect(() => {
     document.title = 'Iniciar Sesión'
-  }, [])
+
+    // habilito/deshabilito el boton de envio según si los campos están vacíos
+    if (email && password) {
+      setIsSubmitDisabled(false)
+    } else {
+      setIsSubmitDisabled(true)
+    }
+    // setIsSubmitDisabled(!email || !password);
+  }, [email, password]);
 
 
   return (
@@ -68,7 +77,7 @@ const LoginPage = ({ handleStartLoginRegistroClick }) => {
           </a>
         </p>
         
-        <input type="submit" className="btn btn-wide btn-neutral" />
+        <input type="submit" className="btn btn-wide btn-neutral" disabled={isSubmitDisabled} />
       </form>
     </div>
   );
