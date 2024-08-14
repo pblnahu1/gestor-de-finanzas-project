@@ -6,7 +6,10 @@ import Footer from './components/Footer'
 import HomePage from './pages/HomePage'
 import LoginPage from './pages/Login';
 import Registro from './pages/Registro';
+
 import PageDashboard from './pages/PageDashboard';
+import HeaderDashboard from './components/Dashboard/HeaderDashboard';
+import FooterDashboard from './components/Dashboard/FooterDashboard';
 
 function App() {
 
@@ -25,42 +28,63 @@ function App() {
 
   return (
 
-    <div className='min-h-screen flex flex-col'>
-      <Header />
-      <main className=' flex-grow p-4 items-center'>
-        <Routes>
-          <Route
-            path='/'
-            element={<HomePage />}
-          ></Route>
-          <Route
-            path='/login'
-            element={
+    <Routes>
+      <Route
+        path='/'
+        element={
+          <div className='min-h-screen flex flex-col'>
+            <Header />
+            <main className='flex-grow p-4 items-center'>
+              <HomePage />
+            </main>
+            <Footer />
+          </div>
+        }
+      ></Route>
+      <Route
+        path='/login'
+        element={
+          <div className='min-h-screen flex flex-col'>
+            <Header />
+            <main className='flex-grow p-4 items-center'>
               <LoginPage
                 handleStartLoginRegistroClick={() => handleStartLoginRegistroClick(2)}
                 handleStartHomeDashboardCLick={() => handleStartLoginRegistroClick(3)}
               />
-            }
-          ></Route>
-          <Route
-            path='/registro'
-            element={
+            </main>
+            <Footer />
+          </div>
+        }
+      ></Route>
+      <Route
+        path='/registro'
+        element={
+          <div className='min-h-screen flex flex-col'>
+            <Header />
+            <main className='flex-grow p-4 items-center'>
               <Registro
                 handleStartLoginRegistroClick={() => handleStartLoginRegistroClick(1)}
                 handleStartHomeDashboardCLick={() => handleStartLoginRegistroClick(3)}
               />
-            }
-          ></Route>
-          <Route
-            path='/homedashboard'
-            element={
-              <PageDashboard />
-            }
-          ></Route>
-        </Routes>
-      </main>
-      <Footer />
-    </div>
+            </main>
+            <Footer />
+          </div>
+        }
+      ></Route>
+
+      <Route
+        path='/homedashboard'
+        element={
+          <div className='min-h-screen flex flex-col'>
+            <HeaderDashboard />
+            <main className='flex-grow p-4 items-center'>
+              <PageDashboard /> 
+            </main>
+            <FooterDashboard />
+          </div>
+        }
+      ></Route>
+    </Routes>
 
   )
 }
