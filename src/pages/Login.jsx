@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react';
 import InputField from '../components/InputField';
+import handleClickDash from '../logica/handleClickDash';
+// import { useNavigate } from 'react-router-dom';
 
 // eslint-disable-next-line react/prop-types
-const LoginPage = ({ handleStartLoginRegistroClick }) => {
+const LoginPage = ({ handleStartLoginRegistroClick, handleStartHomeDashboardCLick }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
@@ -24,12 +26,11 @@ const LoginPage = ({ handleStartLoginRegistroClick }) => {
     // setIsSubmitDisabled(!email || !password);
   }, [email, password]);
 
-
   return (
     <div className="flex flex-col items-center justify-center m-5 md:m-20">
       <h1 className="text-3xl md:text-5xl font-bold mt-5 mb-5">Iniciar Sesión</h1>
 
-      <form className="flex flex-col items-center justify-center w-full md:w-2/5">
+      <form className="flex flex-col items-center justify-center w-full md:w-2/5" onSubmit={handleClickDash(handleStartHomeDashboardCLick)}>
         
 
         <InputField
@@ -77,7 +78,11 @@ const LoginPage = ({ handleStartLoginRegistroClick }) => {
           </a>
         </p>
         
-        <input type="submit" className="btn btn-wide btn-neutral" disabled={isSubmitDisabled} />
+        <input
+          type="submit"
+          className="btn btn-wide btn-neutral"
+          disabled={isSubmitDisabled}
+        />
       </form>
     </div>
   );

@@ -11,7 +11,7 @@ export default function ContentHero() {
 
   return (
 
-    <div className="mt-5 rounded-box top-0 z-[-2] py-32 px-7 bg-white bg-[radial-gradient(ellipse_80%_80%_at_50%_-5%,rgba(120,119,198,0.3),rgba(255,255,255,0))]">
+    <div className=" rounded-box top-0 z-[-2] py-32 px-7 bg-white bg-[radial-gradient(ellipse_80%_80%_at_50%_-5%,rgba(120,119,198,0.3),rgba(255,255,255,0))]">
       <div className="hero min-h-full rounded-box">
         <div className="hero-content text-center">
           <div className="max-w-md">

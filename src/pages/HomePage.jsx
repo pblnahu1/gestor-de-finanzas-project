@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import Carousel from "../components/Carousel";
+// import Carousel from "../components/Carousel";
 import ContentHero from "../components/ContentHero";
 
 export default function HomePage() {
@@ -8,7 +8,7 @@ export default function HomePage() {
     }, [])
     return (
         <>
-            <Carousel />
+            {/* <Carousel /> */}
             <ContentHero />
         </>
     )

@@ -6,13 +6,15 @@ import Footer from './components/Footer'
 import HomePage from './pages/HomePage'
 import LoginPage from './pages/Login';
 import Registro from './pages/Registro';
+import PageDashboard from './pages/PageDashboard';
 
 function App() {
 
   const path = [
     '/',
     '/login',
-    '/registro'
+    '/registro',
+    '/homedashboard'
   ]
 
   const navigate = useNavigate();
@@ -22,19 +24,44 @@ function App() {
   }
 
   return (
-    
-      <div className='min-h-screen flex flex-col'>
-        <Header />
-        <main className=' flex-grow p-4 items-center'>
-          <Routes>
-            <Route path='/' element={<HomePage />}></Route>
-            <Route path='/login' element={<LoginPage handleStartLoginRegistroClick={() => handleStartLoginRegistroClick(2)} />}></Route>
-          <Route path='/registro' element={<Registro handleStartLoginRegistroClick={() => handleStartLoginRegistroClick(1)} />}></Route>
-          </Routes>
-        </main>
-        <Footer />
-      </div>
-    
+
+    <div className='min-h-screen flex flex-col'>
+      <Header />
+      <main className=' flex-grow p-4 items-center'>
+        <Routes>
+          <Route
+            path='/'
+            element={<HomePage />}
+          ></Route>
+          <Route
+            path='/login'
+            element={
+              <LoginPage
+                handleStartLoginRegistroClick={() => handleStartLoginRegistroClick(2)}
+                handleStartHomeDashboardCLick={() => handleStartLoginRegistroClick(3)}
+              />
+            }
+          ></Route>
+          <Route
+            path='/registro'
+            element={
+              <Registro
+                handleStartLoginRegistroClick={() => handleStartLoginRegistroClick(1)}
+                handleStartHomeDashboardCLick={() => handleStartLoginRegistroClick(3)}
+              />
+            }
+          ></Route>
+          <Route
+            path='/homedashboard'
+            element={
+              <PageDashboard />
+            }
+          ></Route>
+        </Routes>
+      </main>
+      <Footer />
+    </div>
+
   )
 }
 

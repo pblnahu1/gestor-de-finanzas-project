@@ -2,9 +2,10 @@
 import { useState } from "react"
 import InputField from "../components/InputField"
 import { useEffect } from "react"
+import handleClickDash from "../logica/handleClickDash"
 
 // eslint-disable-next-line react/prop-types
-const Registro = ({ handleStartLoginRegistroClick }) => {
+const Registro = ({ handleStartLoginRegistroClick, handleStartHomeDashboardCLick }) => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [user, setUser] = useState('')
@@ -25,13 +26,18 @@ const Registro = ({ handleStartLoginRegistroClick }) => {
     } else {
       setIsSubmitDisabled(false);
     }
+    
   }, [email, password, user, name, apellido]);
 
   return (
     <div className="flex flex-col items-center justify-center m-20 md:m-20">
       <h1 className="text-3xl md:text-5xl font-bold mt-5 mb-5">Registrarse</h1>
 
-      <form action="" className="flex flex-col items-center justify-center w-full md:w-2/5">
+      <form
+        action=""
+        className="flex flex-col items-center justify-center w-full md:w-2/5"
+        onSubmit={handleClickDash(handleStartHomeDashboardCLick)}
+      >
 
 
         <InputField
