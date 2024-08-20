@@ -8,8 +8,8 @@ import LoginPage from './pages/Login';
 import Registro from './pages/Registro';
 
 import PageDashboard from './pages/PageDashboard';
-import HeaderDashboard from './components/Dashboard/HeaderDashboard';
-import FooterDashboard from './components/Dashboard/FooterDashboard';
+// import HeaderDashboard from './components/Dashboard/HeaderDashboard';
+// import FooterDashboard from './components/Dashboard/FooterDashboard';
 
 function App() {
 
@@ -34,7 +34,7 @@ function App() {
         element={
           <div className='min-h-screen flex flex-col'>
             <Header />
-            <main className='flex-grow p-4 items-center'>
+            <main className='flex-grow p-5 items-center'>
               <HomePage />
             </main>
             <Footer />
@@ -46,7 +46,7 @@ function App() {
         element={
           <div className='min-h-screen flex flex-col'>
             <Header />
-            <main className='flex-grow p-4 items-center'>
+            <main className='flex-grow p-5 items-center'>
               <LoginPage
                 handleStartLoginRegistroClick={() => handleStartLoginRegistroClick(2)}
                 handleStartHomeDashboardCLick={() => handleStartLoginRegistroClick(3)}
@@ -61,7 +61,7 @@ function App() {
         element={
           <div className='min-h-screen flex flex-col'>
             <Header />
-            <main className='flex-grow p-4 items-center'>
+            <main className='flex-grow p-5 items-center'>
               <Registro
                 handleStartLoginRegistroClick={() => handleStartLoginRegistroClick(1)}
                 handleStartHomeDashboardCLick={() => handleStartLoginRegistroClick(3)}
@@ -75,12 +75,15 @@ function App() {
       <Route
         path='/homedashboard'
         element={
-          <div className='min-h-screen flex flex-col'>
-            <HeaderDashboard />
-            <main className='flex-grow p-4 items-center'>
+          <div className='flex min-h-screen'>
+            {/* <HeaderDashboard /> */}
               <PageDashboard /> 
+            <main className='flex-grow p-4 ml-64'>
+              <div className="artboard artboard-horizontal phone-1 bg-black">568×320</div>
+              <div className="artboard artboard-horizontal phone-3 bg-blue-700">736×414</div>
+              <div className="artboard phone-1 bg-red-600">320×568</div>
             </main>
-            <FooterDashboard />
+            {/* <FooterDashboard /> */}
           </div>
         }
       ></Route>
