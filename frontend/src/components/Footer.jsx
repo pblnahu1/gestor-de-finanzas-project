@@ -2,7 +2,7 @@ import DollarIcon from "./DollarIcon";
 
 export default function Footer() {
   return (
-    <footer className="rounded-tl-3xl rounded-tr-3xl footer footer-center bg-black text-primary-content p-10 mt-auto">
+    <footer className="rounded-tl-3xl rounded-tr-3xl footer footer-center bg-black  p-10 mt-auto">
       <aside>
         <DollarIcon />
         <p className="font-bold">

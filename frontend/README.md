@@ -33,6 +33,9 @@ module.exports = {
 React Router
 ```npm install react-router-dom```
 
+Base de Datos: MySQL
+Backend: Node y Express para construir API REST que interactúe con la BD
+
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 

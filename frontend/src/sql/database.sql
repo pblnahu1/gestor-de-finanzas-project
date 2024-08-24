@@ -1,0 +1,10 @@
+CREATE DATABASE system_personal_finance;
+USE system_personal_finance;
+
+CREATE TABLE IF NOT EXISTS USERS (
+    id_user INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(255) NOT NULL UNIQUE,
+    email_user VARCHAR(255) NOT NULL UNIQUE,
+    password_user VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

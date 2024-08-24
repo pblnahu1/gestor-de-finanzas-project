@@ -63,7 +63,7 @@ export default function Header() {
             </details>
           </li> */}
           <li><a>Ayuda</a></li>
-          <Theme />
+          {/* <Theme /> */}
         </ul>
       </div>
       <div className="navbar-end mr-5">
