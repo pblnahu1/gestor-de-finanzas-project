@@ -104,12 +104,5 @@ module.exports = {
 
 ## Configuración del Backend y BD
 - Base de Datos: MySQL
-- Backend: Node y Express para construir API REST que interactúe con la BD
-
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Backend: Node y Express para construir API REST que interactúe con la BD. CORS para permitir que otros origenes consuman el servidor
+- Frontend: React, Tailwind y Axios para manejar las solicitudes HTTP (client-server)
