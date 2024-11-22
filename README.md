@@ -1,5 +1,5 @@
 # Proyecto FullStack - Gestor de Finanzas
-# Stack Front: React JS, TailwindCSS/DaisyUI | Stack Backend: Node JS, Express, CORS | Stack DB: MySQL | Axios para comunicarme con el Backend
+# Stack Front: React JS, TailwindCSS/DaisyUI | Stack Backend: Node JS, Express, CORS | Stack DB: Postgres con Docker | Axios para comunicarme con el Backend
 
 ## Proceso de desarrollo (Puede tener cambios a futuro)
 
@@ -103,6 +103,12 @@ module.exports = {
 ```npm install react-router-dom```
 
 ## Configuración del Backend y BD
-- Base de Datos: MySQL
+- Base de Datos: Postgres
 - Backend: Node y Express para construir API REST que interactúe con la BD. CORS para permitir que otros origenes consuman el servidor
 - Frontend: React, Tailwind y Axios para manejar las solicitudes HTTP (client-server)
+
+1. Postgres con Docker - Instalaciones
+
+```bash
+
+```
