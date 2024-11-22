@@ -110,5 +110,9 @@ module.exports = {
 1. Postgres con Docker - Instalaciones
 
 ```bash
+# Contenedor docker:
+docker run --name render-postgres -e POSTGRES_PASSWORD=mysecretpassword -d -p 5444:5432 postgres
 
+# Para conectarme desde el backend a postgres:
+npm i pg
 ```
