@@ -1,6 +1,8 @@
 # Proyecto FullStack - Gestor de Finanzas
 # Stack Front: React JS, TailwindCSS/DaisyUI | Stack Backend: Node JS, Express, CORS | Stack DB: Postgres con Docker | Axios para comunicarme con el Backend
 
+![alt text](client/public/gestor-finanzas.webp "Principal")
+
 ## Proceso de desarrollo (Puede tener cambios a futuro)
 
 ### LÓGICA (puede cambiar):
@@ -101,6 +103,11 @@ module.exports = {
 4. Tener instalado React Router
 
 ```npm install react-router-dom```
+
+5. Paquete recharts
+```bash 
+npm install recharts
+```
 
 ## Configuración del Backend y BD
 - Base de Datos: Postgres
