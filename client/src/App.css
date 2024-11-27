@@ -22,3 +22,7 @@ body::-webkit-scrollbar {
 body::-webkit-scrollbar-thumb {
   background-color: #fff;
 }
+
+.shadow-top {
+  box-shadow: 0 -15px 25px rgba(0, 0, 0, 0.1);
+}

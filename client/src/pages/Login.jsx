@@ -27,8 +27,9 @@ const LoginPage = ({ handleStartLoginRegistroClick, handleStartHomeDashboardCLic
   }, [email, password]);
 
   return (
-    <div className="flex flex-col items-center justify-center m-5 md:m-20">
-      <h1 className="text-3xl md:text-5xl font-bold mt-5 mb-5">Iniciar Sesión</h1>
+    <div className="flex flex-col items-center justify-center lg:my-10 m-0">
+      <h1 className="text-3xl md:text-5xl font-bold lg:m-5 m-0">Iniciar Sesión</h1>
+      <span className='mb-5 text-center'>La autenticación es simulada. Podés agregar cualquier cosa que eso te llevará al dashboard.</span>
 
       <form className="flex flex-col items-center justify-center w-full md:w-2/5" onSubmit={handleClickDash(handleStartHomeDashboardCLick)}>
         

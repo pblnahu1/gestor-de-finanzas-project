@@ -1,8 +1,9 @@
 import DollarIcon from "./DollarIcon";
+import '../App.css'
 
 export default function Footer() {
   return (
-    <footer className="rounded-tl-3xl rounded-tr-3xl footer footer-center bg-black  p-10 mt-auto">
+    <footer className="rounded-tl-3xl rounded-tr-3xl footer footer-center bg-black p-10 mt-auto shadow-top">
       <aside>
         <DollarIcon />
         <p className="font-bold">

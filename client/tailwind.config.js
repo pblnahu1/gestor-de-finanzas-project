@@ -9,6 +9,9 @@ export default {
     extend: {
       height: {
         '70vh': '70vh',
+      },
+      fontFamily: {
+        jakarta: ['"Plus Jakarta Sans"', 'sans-serif'],
       }
     },
   },

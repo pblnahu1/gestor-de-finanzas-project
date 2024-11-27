@@ -30,8 +30,9 @@ const Registro = ({ handleStartLoginRegistroClick, handleStartHomeDashboardCLick
   }, [email, password, user, name, apellido]);
 
   return (
-    <div className="flex flex-col items-center justify-center m-20 md:m-20">
-      <h1 className="text-3xl md:text-5xl font-bold mt-5 mb-5">Registrarse</h1>
+    <div className="flex flex-col items-center justify-center lg:my-10 m-0">
+      <h1 className="text-3xl md:text-5xl font-bold lg:m-5 m-0">Registrarse</h1>
+      <span className='mb-5 text-center'>La autenticación es simulada. Podés agregar cualquier cosa que eso te llevará al dashboard.</span>
 
       <form
         action=""
