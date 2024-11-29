@@ -15,11 +15,9 @@ import { Transactions } from "./components/Dashboard/Transactions";
 import { PayableAccounts } from "./components/Dashboard/PayableAccounts";
 import MonthlyEarnings from "./components/Dashboard/MonthlyEarnings";
 import Earnings from "./components/Dashboard/Earnings";
-// import HeaderDashboard from './components/Dashboard/HeaderDashboard';
-// import FooterDashboard from './components/Dashboard/FooterDashboard';
 
 function App() {
-  const path = ["/", "/login", "/registro", "/homedashboard"];
+  const path = ["/", "/api/login", "/api/registro", "/api/homedashboard"];
 
   const navigate = useNavigate();
 
@@ -42,7 +40,7 @@ function App() {
         }
       ></Route>
       <Route
-        path="/login"
+        path="/api/login"
         element={
           <div className="min-h-screen flex flex-col">
             <Header />
@@ -61,7 +59,7 @@ function App() {
         }
       ></Route>
       <Route
-        path="/registro"
+        path="/api/registro"
         element={
           <div className="min-h-screen flex flex-col">
             <Header />
@@ -81,10 +79,10 @@ function App() {
       ></Route>
 
       <Route
-        path="/homedashboard"
+        path="/api/homedashboard"
         element={
           <div className="min-h-screen flex">
-            {/* <HeaderDashboard /> */}
+            
 
             <main className="flex-grow p-4 lg:pl-72 font-jakarta">
               <div className="flex flex-row items-center justify-between mb-4">
@@ -103,7 +101,7 @@ function App() {
                 <Earnings />
               </div>
             </main>
-            {/* <FooterDashboard /> */}
+            
           </div>
         }
       ></Route>

@@ -6,7 +6,7 @@ export default function ContentHero() {
   const navigate = useNavigate()
 
   const handleStartClick = () => {
-    navigate('/login')
+    navigate('/api/login')
   }
 
   return (

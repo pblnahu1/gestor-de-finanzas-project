@@ -8,7 +8,7 @@ export default function Header() {
   const navigate = useNavigate()
 
   const handleStartClick = () => {
-    navigate('/login')
+    navigate('/api/login')
   }
 
   const handleStartHomeClick = () => {
