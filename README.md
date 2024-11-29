@@ -1,97 +1,155 @@
-# Proyecto FullStack - Gestor de Finanzas
-# Stack Front: React JS, TailwindCSS/DaisyUI | Stack Backend: Node JS, Express, CORS | Stack DB: Postgres con Docker | Axios para comunicarme con el Backend
+# Gestor de Finanzas con Autenticación de Usuarios JWT en Node y React
+La aplicación implementa autenticación basada en Json Web Token (JWT) el cual redirije al usuario a un Dashboard para administrar gastos. Los usuarios pueden registrarse e iniciar sesión, y las rutas protegidas son solo accesibles con un token válido.
 
+## Características
+- Stack Front: React JS, TailwindCSS/DaisyUI.
+- Stack Backend: Node JS, Express.
+- Stack DB: Postgres con Docker.
+- Axios para comunicarme con el Backend.
+- Contraseñas protegidas con Bcrypt.
+- Autenticación de usuarios con JWT.
+- Arquitectura y planificación con Draw.io.
+- Desarrollo de la UI con [Tailwind CSS](https://tailwindui.com/) y [DaisyUI](https://daisyui.com/) para acelerar el desarrollo y reutilizar componentes.
+- Funcionamiento dinámico de client/server con APIs.
+- Manejo de formularios y validaciones.
+- Actualización dinámica de la UI cuando se agregar, editan o eliminan gastos.
+- Pruebas y Debugging.
+- Diseño de la Aplicación con FIGMA: Creamos el diseño de la interfaz de usuario (pueden surgir cambios):
 ![alt text](client/public/gestor-finanzas.webp "Principal")
+<!-- Más (sacar de Figma) -->
 
-## Proceso de desarrollo (Puede tener cambios a futuro)
+## Requisitos Previos
+Antes de comenzar, asegurate de tener instalado:
+- Node.js (incluye npm)
+- PostgreSQL
+- Docker y Docker Compose
+- Git
+- Visual Studio Code o cualquier editor de código que uses
 
-### LÓGICA (puede cambiar):
-1.- Crear una función para calcular gastos mensuales
-2.- Pedir al usuario el número de días del mes
-3.- Validar que el usuario ingrese un número válido
-4.- Inicializar una lista vacía para almacenar los gastos diarios
-5.- Solicitar al usuario que ingrese los gastos diarios
-6.- Validar que el usuario ingrese un número válido
-7.- Calcular la suma de los gastos mensuales
-8.- Mostrar el resultado al usuario
-9.- Llamar a la función para calcular los gastos mensuales
+## Instalación en tu computadora
+1. Clonar el repositorio
+```bash
+git clone https://github.com/pblnahu1/gestor-de-finanzas-project
+cd gestor-de-finanzas-project
+```
+2. Backend. Instalar las dependencias
+```bash
+cd backend 
+npm install
+```
+3. Client. Instalar las dependencias
+```bash
+cd client
+npm install
+```
+4. Creación de la base de datos de postgres con docker (abajo está explicado en detalle)
 
-### DISEÑO DE LA APLICACIÓN
-FIGMA: Crear el diseño de la interfaz de usuario. Incluye:
-- Pantalla de inicio de sesión y registro.
-- Pantalla principal con una lista de gastos.
-- Formulario para agregar nuevos gastos.
-- Gráficos o estadísticas mensuales.
-- Ajustes y configuración de la cuenta.
+## Comandos importantes
+### Backend
+- Crear la BD Postgres con Docker (podés usar Docker Desktop para visualizar mejor si el contenedor está activo o no):
+```bash
+# Crear el contenedor Postgres:
+# docker run --name <nombre_contenedor> -e POSTGRES_PASSWORD=<tu_contraseña> -d -p <puerto_disponible_postgres>:5432 postgres
+docker run --name render-postgres -e POSTGRES_PASSWORD=mysecretpassword -d -p 5444:5432 postgres
 
-### ARQUITECTURA Y PLANIFICACIÓN
-- Diagramas de Base de Datos: Aunque al principio voy a usar LocalStorage, está 
-bueno que pueda diseñar los diagramas para una futura implementación de SQL y NoSQL.
-- Diagrama Entidad Relación (der) para SQL
-- Estructura de documentos para MongoDB
+# Para conectarme desde el backend a postgres hay que instalar:
+npm i pg
 
-### DESARROLLO DE LA API JSON
-Mock API: Definir los endpoints necesarios para la app. Ejemplos:
-- `GET /expenses` -> Obtener todos los gastos
-- `POST /expenses` -> Agregar un nuevo gasto
-- `PUT /expenses/:id` -> Actualizar un gasto existente
-- `DELETE /expenses/:id` -> Eliminar un gasto
+# Para verificar si el contenedor esta corriendo:
+docker ps
 
-### IMPLEMENTACIÓN DE LOCALSTORAGE
-- Funciones de CRUD: Implementar funciones en JS para interactuar con LocalStorage
-- Guardar y recuperar datos
-- Agregar, editar y eliminar registros
-- Manejar la persistencia de datos entre sesiones
+# Para ver los logs del contenedor
+docker logs render-postgres
 
-### DESARROLLO DE LA INTERFAZ
-- Tailwind CSS: Usar Tailwind para estilizar la app
-- Plantillas y componentes reconstruidos para acelerar el desarrollo
-- https://tailwindui.com/
-- https://daisyui.com/
+# Para correr el contenedor:
+docker start render-postgres
 
-### INTEGRACIÓN DE FUNCIONALIDADES
-- Conexión de la API con la UI: Conectar las funciones de CRUD con la UI
-- Manejo de formularios y validaciones !!!!! fundamental
-- Actualización dinámica de la UI cuando se agregar, editan o eliminan gastos
+# Para ver contenedores en ejecucion
+docker-compose up -d
 
-### PRUEBAS Y DEBUGGING
-- Pruebas unitarias: Escribir pruebas unitarias para mis funciones de CRUD
-- Depurar: Importante para que no haya erroes y que la app funcione en distintos navegadores
+# Conectarme a PostgreSQL desde el contenedor y poder hacer consultas desde la terminal
+# docker exec -it <nombre_del_contenedor> psql -U <usuario> -d <nombre_base_datos>
+docker exec -it render-postgres psql -U postgres -d postgres
 
-### DOCUMENTACIÓN (README.md) y PREPARACIÓN PARA FUTURAS IMPLEMENTACIONES
-- Documentar el código en GitHub y las decisiones de diseño
-- Preparación para SQL y NoSQL: Mantener los diagramas y planear cómo migrar los datos y funcionalidades a una 
-BD SQL y después a una NoSQL en el futuro.
+# Aparece
+postgres=# 
+# Y ahi podemos crear tablas
+postgres=#CREATE TABLE users (
+postgres=#id SERIAL PRIMARY KEY,
+postgres=#email VARCHAR(255) NOT NULL,
+postgres=#password VARCHAR(255) NOT NULL
+postgres=#);
+postgres=#
+postgres=#INSERT INTO usuarios (email, contraseña) 
+postgres=#VALUES ('usuario@example.com', 'contraseña123');
 
-### RECURSOS ADICIONALES:
-- TAILWIND CSS DOCUMENTATION: https://tailwindcss.com/docs
-- FIGMA COMMUNITY: Buscar plantillas y ejemplos en la comunidad de Figma
-- LocalStorage Guide: https://developer.mozilla.org/es/docs/Web/API/Window/localStorage
+# Para ver las tablas:
+\dt
 
-## Instalaciones / Dependencias
+# Para salir de PSQL
+\q
 
+# Para salir del contenedor con el comando
+exit
+
+# Detener el contenedor (si es necesario)
+docker stop render-postgres
+
+# Si existiese un archivo docker-compose.yml
+docker-compose up -d
+
+# Para detener el contenedor con docker-compose
+docker-compose down
+```
+
+- Iniciar el servidor desde /backend
+```bash
+npm run dev
+# Correrá el servidor en localhost:3001
+```
+
+- Dependencias instaladas en el Backend
+| Dependencia | Comando de Instalación | Descripción |
+|----------|----------|----------|
+| `express` | `npm install express` | Framework minimalista para crear servidores y gestionar rutas HTTP en Node.js. |
+| `bcrypt` | `npm install bcrypt` | Biblioteca para encriptar contraseñas y validarlas de manera segura. |
+| `body-parser` | `npm install body-parser` | Middleware para analizar datos del cuerpo de las solicitudes HTTP. |
+| `cookie-parser` | `npm install cookie-parser` | Middleware para manejar cookies en las solicitudes HTTP. |
+| `cors` | `npm install cors`  | Habilita solicitudes entre diferentes dominios (Cross-Origin Resource Sharing). |
+| `dotenv` |`npm install dotenv` | Carga variables de entorno desde un archivo `.env` al entorno de ejecución. |
+| `fs` |`npm install fs` | Biblioteca para trabajar con el sistema de archivos en Node.js. |
+| `jsonwebtoken` |`npm install jsonwebtoken` | Genera y verifica JSON Web Tokens (JWT) para autenticación. |
+| `multer` |`npm install multer` | Middleware para manejar la subida de archivos en solicitudes HTTP. |
+| `nodemon` |`npm install nodemon` | Herramienta para reiniciar automáticamente el servidor al detectar cambios en el código. |
+| `path` |`npm install path` | Biblioteca para trabajar con rutas de archivos y directorios. |
+| `pg` |`npm install pg` | Librería para interactuar con bases de datos PostgreSQL desde Node.js. |
+
+### Frontend (Client)
+- Iniciar aplicación React
+```bash
+npm run dev
+# Levanta la App en localhost:5173
+```
+- Dependencias instaladas en el Frontend:
 1. Tener instalado Node JS: https://nodejs.org/es/
-
 2. Para instalar Tailwind CSS:
-- ```$ npm install -D tailwindcss postcss autoprefixer```
-- ```$ npx tailwindcss init -p```
-
+```bash
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p
+```
 - Esto crea los archivos `tailwind.config.js` y `postcss.config.js`
 - En `tailwind.config.js` agregar en 'content' esto:
-```
+```js
 content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
+  "./index.html",
+  "./src/**/*.{js,ts,jsx,tsx}",
 ],
 ```
-
 3. Instalar daisyUI como un paquete npm:
-
 ```npm i -D daisyui@latest```
-
 - Agregar daisyUI a tailwind.config.js:
-
-```import daisyui from "daisyui"
+```js
+import daisyui from "daisyui"
 module.exports = {
   //...
   plugins: [
@@ -99,27 +157,15 @@ module.exports = {
   ],
 }
 ```
-
 4. Tener instalado React Router
-
-```npm install react-router-dom```
-
+```bash
+npm install react-router-dom
+```
 5. Paquete recharts
 ```bash 
 npm install recharts
 ```
-
-## Configuración del Backend y BD
-- Base de Datos: Postgres
-- Backend: Node y Express para construir API REST que interactúe con la BD. CORS para permitir que otros origenes consuman el servidor
-- Frontend: React, Tailwind y Axios para manejar las solicitudes HTTP (client-server)
-
-1. Postgres con Docker - Instalaciones
-
+6. Axios
 ```bash
-# Contenedor docker:
-docker run --name render-postgres -e POSTGRES_PASSWORD=mysecretpassword -d -p 5444:5432 postgres
-
-# Para conectarme desde el backend a postgres:
-npm i pg
+npm install axios
 ```

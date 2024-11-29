@@ -1,0 +1,16 @@
+version: '3.9'
+services: 
+  postgres:
+    image: postgres:latest
+    container_name: render-postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: mysecretpassword
+      POSTGRES_DB: postgres
+    ports:
+      - "5444:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
