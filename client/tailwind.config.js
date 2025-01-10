@@ -12,11 +12,14 @@ export default {
       },
       fontFamily: {
         jakarta: ['"Plus Jakarta Sans"', 'sans-serif'],
-      }
+      },
     },
   },
   plugins: [
     daisyui
   ],
+  daisyui: {
+    themes: ["light"] // cambio el tema predeterminado a light
+  }
 }
 

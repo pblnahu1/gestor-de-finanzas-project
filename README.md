@@ -169,3 +169,7 @@ npm install recharts
 ```bash
 npm install axios
 ```
+
+# Autor
+[Pablo Torrez](https://www.linkedin.com/in/pablo-nahuel-torrez-33a80324b/)
+[Portfolio Dev](https://portfolio-dev-lilac.vercel.app/)

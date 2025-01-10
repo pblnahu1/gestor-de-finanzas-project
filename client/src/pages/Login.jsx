@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
-import { useState, useEffect } from 'react';
 import InputField from '../components/InputField';
 import { login } from '../services/authService';
 import { useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 
 const LoginPage = ({ handleStartLoginRegistroClick, handleStartHomeDashboardCLick }) => {
   const [email, setEmail] = useState('');
@@ -41,14 +41,14 @@ const LoginPage = ({ handleStartLoginRegistroClick, handleStartHomeDashboardCLic
   };
 
   return (
-    <div className="flex flex-col items-center justify-center lg:my-10 m-0">
-      <h1 className="text-3xl md:text-5xl font-bold lg:m-5 m-0">Iniciar Sesión</h1>
+    <div className="flex flex-col items-center justify-center m-0 lg:my-10">
+      <h1 className="m-0 text-3xl font-bold md:text-5xl lg:m-5">Iniciar Sesión</h1>
       <span className="mb-5 text-center">
         La autenticación ahora se realiza contra el backend.
       </span>
 
       {errorMessage && (
-        <p className="text-red-500 mb-4">
+        <p className="mb-4 text-red-500">
           {errorMessage}
         </p>
       )}
@@ -75,7 +75,7 @@ const LoginPage = ({ handleStartLoginRegistroClick, handleStartHomeDashboardCLic
 
         <p>
           <a
-            className="cursor-pointer flex flex-col mt-4 mb-4 text-center"
+            className="flex flex-col mt-4 mb-4 text-center cursor-pointer"
             onClick={handleStartLoginRegistroClick}
           >
             ¿No tenés una cuenta? ¡Registrate!

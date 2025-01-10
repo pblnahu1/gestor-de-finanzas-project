@@ -34,4 +34,23 @@ const loginUser = async (req, res) => {
   }
 };
 
-export default loginUser;
+const registerUser = async (req, res) => {
+  const { email, password, username, name, apellido } = req.body;
+  console.log('Datos recibidos:',{email, password, username, name, apellido})
+  try {
+    const hashedPassword = await bcrypt.hash(password, 10);
+    await query("INSERT INTO users (email, password, username, name, apellido) VALUES ($1, $2, $3, $4, $5)", [
+      email,
+      hashedPassword,
+      username,
+      name, 
+      apellido
+    ]);
+    res.status(201).json({ message: "Usuario creado con éxito" });
+  } catch (error) {
+    console.error("Error en el servidor:", error);
+    res.status(500).json({ message: "Error en el servidor" });
+  }
+};
+
+export { loginUser, registerUser };

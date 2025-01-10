@@ -1,8 +1,8 @@
 import express from "express"
 import { Router } from "express";
 const router = express.Router()
-import loginUser from "../controllers/authController.js";
 import jwt from "jsonwebtoken"
+import { loginUser, registerUser } from "../controllers/authController.js";
 
 // ruta para iniciar sesion
 router.post('/login', loginUser)
@@ -35,7 +35,7 @@ function ensureToken(req, res, next) {
 }
 
 // ruta para registrarme
-// router.post('/register', registerUser)
+router.post('/register', registerUser)
 
 // ruta para verificar el token
 // router.post('/verify', verifyToken)

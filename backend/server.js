@@ -10,6 +10,7 @@ dotenv.config();
 import { PORT, FRONTEND_URL } from "./config/config.js";
 import { query } from "./config/db.js";
 import router from "./routes/authRoutes.js"
+import {hashPassword} from "./hashPassword.js"
 
 const app = express()
 
@@ -46,7 +47,13 @@ app.get("/conn", async (req, res) => {
     }
 });
 
-
+hashPassword()
+    .then(()=>{
+        console.log('Todas las contraseñas han sido hasheadas.');
+    })
+    .catch((error)=>{
+        console.error('Error al hashear contraseñas: ', error.message);
+    })
 
 app.listen(PORT, () => {
     console.log(`Servidor corriendo en puerto ${PORT}`);
