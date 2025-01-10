@@ -2,13 +2,13 @@
 import { useState } from "react";
 import InputField from "../components/InputField";
 import { useEffect } from "react";
-import handleClickDash from "../logica/handleClickDash";
+// import handleClickDash from "../logica/handleClickDash";
 import { register } from "../services/authService";
+import { useNavigate } from "react-router-dom";
 
 // eslint-disable-next-line react/prop-types
 const Registro = ({
   handleStartLoginRegistroClick,
-  handleStartHomeDashboardCLick,
 }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -18,6 +18,7 @@ const Registro = ({
   const [showPassword, setShowPassword] = useState(false);
   const [isSubmitDisabled, setIsSubmitDisabled] = useState(true);
   const [error, setError] = useState(null);
+  const navigate = useNavigate();
 
   const handleTogglePassword = () => {
     setShowPassword((prevShowPassword) => !prevShowPassword);
@@ -43,7 +44,8 @@ const Registro = ({
     e.preventDefault();
     try {
       await register(email, password, username, name, apellido);
-      handleClickDash(handleStartHomeDashboardCLick)
+      // handleClickDash(handleStartHomeDashboardCLick)
+      navigate("/api/homedashboard");
     } catch (error) {
       console.error(error.message);
       setError(error.message);

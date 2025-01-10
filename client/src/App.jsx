@@ -30,9 +30,9 @@ function App() {
       <Route
         path="/"
         element={
-          <div className="min-h-screen flex flex-col">
+          <div className="flex flex-col min-h-screen">
             <Header />
-            <main className="flex-grow p-5 items-center">
+            <main className="items-center flex-grow p-5">
               <HomePage />
             </main>
             <Footer />
@@ -42,15 +42,12 @@ function App() {
       <Route
         path="/api/login"
         element={
-          <div className="min-h-screen flex flex-col">
+          <div className="flex flex-col min-h-screen">
             <Header />
-            <main className="flex-grow p-5 items-center">
+            <main className="items-center flex-grow p-5">
               <LoginPage
                 handleStartLoginRegistroClick={() =>
                   handleStartLoginRegistroClick(2)
-                }
-                handleStartHomeDashboardCLick={() =>
-                  handleStartLoginRegistroClick(3)
                 }
               />
             </main>
@@ -61,15 +58,12 @@ function App() {
       <Route
         path="/api/registro"
         element={
-          <div className="min-h-screen flex flex-col">
+          <div className="flex flex-col min-h-screen">
             <Header />
-            <main className="flex-grow p-5 items-center">
+            <main className="items-center flex-grow p-5">
               <Registro
                 handleStartLoginRegistroClick={() =>
                   handleStartLoginRegistroClick(1)
-                }
-                handleStartHomeDashboardCLick={() =>
-                  handleStartLoginRegistroClick(3)
                 }
               />
             </main>
@@ -81,7 +75,7 @@ function App() {
       <Route
         path="/api/homedashboard"
         element={
-          <div className="min-h-screen flex">
+          <div className="flex min-h-screen">
             
 
             <main className="flex-grow p-4 lg:pl-72 font-jakarta">

@@ -4,7 +4,7 @@ import { login } from '../services/authService';
 import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
-const LoginPage = ({ handleStartLoginRegistroClick, handleStartHomeDashboardCLick }) => {
+const LoginPage = ({ handleStartLoginRegistroClick }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
@@ -31,7 +31,7 @@ const LoginPage = ({ handleStartLoginRegistroClick, handleStartHomeDashboardCLic
   
       if(token) {
         localStorage.setItem('token', token);
-        navigate(handleStartHomeDashboardCLick);
+        navigate('/api/homedashboard');
       } else {
         setErrorMessage("No se recibió un token del servidor");
       }
